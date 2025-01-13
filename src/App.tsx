@@ -6,7 +6,6 @@ import { getTodos, USER_ID } from './api/todos';
 import { client } from './utils/fetchClient';
 import { Todo } from './types/Todo';
 import classNames from 'classnames';
-import { title } from 'process';
 
 type FilterMethods = 'All' | 'Completed' | 'Active';
 
@@ -35,7 +34,7 @@ export const App: React.FC = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [todos.length]);
 
   useEffect(() => {
     if (error) {
